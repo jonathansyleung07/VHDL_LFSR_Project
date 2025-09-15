@@ -1,7 +1,7 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
-entity LSFR is
+entity LFSR is
     Port (
         clk    : in  STD_LOGIC;
         rst    : in  STD_LOGIC;
@@ -10,7 +10,7 @@ entity LSFR is
     );
 end LSFR;
 
-architecture Behavioral of LSFR is
+architecture BEHAV of LFSR is
     signal lfsr_reg : STD_LOGIC_VECTOR(31 downto 0) := (others => '0');
     signal feedback : STD_LOGIC;
 begin
@@ -30,4 +30,5 @@ begin
 
     rnd <= lfsr_reg;
 
-end Behavioral;
+end BEHAV;
+
