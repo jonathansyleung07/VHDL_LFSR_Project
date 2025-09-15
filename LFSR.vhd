@@ -8,7 +8,7 @@ entity LFSR is
         enable : in  STD_LOGIC;
         rnd    : out STD_LOGIC_VECTOR(31 downto 0)
     );
-end LSFR;
+end LFSR;
 
 architecture BEHAV of LFSR is
     signal lfsr_reg : STD_LOGIC_VECTOR(31 downto 0) := (others => '0');
@@ -31,4 +31,5 @@ begin
     rnd <= lfsr_reg;
 
 end BEHAV;
+
 
