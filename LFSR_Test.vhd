@@ -1,14 +1,14 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
-entity tb_lsfr is
--- Testbenches have no ports
-end tb_lsfr;
+entity LFSR_Test is
 
-architecture Behavioral of tb_lsfr is
+end LFSR_Test;
 
-    -- Component declaration for the DUT (your LFSR)
-    component LSFR
+architecture TEST of LFSR_Test is
+
+   
+    component LFSR
         Port (
             clk    : in  STD_LOGIC;
             rst    : in  STD_LOGIC;
@@ -17,24 +17,24 @@ architecture Behavioral of tb_lsfr is
         );
     end component;
 
-    -- Signals to drive the DUT
-    signal clk_tb    : STD_LOGIC := '0';
-    signal rst_tb    : STD_LOGIC := '0';
-    signal enable_tb : STD_LOGIC := '0';
-    signal rnd_tb    : STD_LOGIC_VECTOR(31 downto 0);
+    
+    signal clk    : STD_LOGIC := '0';
+    signal rst    : STD_LOGIC := '0';
+    signal enable : STD_LOGIC := '0';
+    signal rnd    : STD_LOGIC_VECTOR(31 downto 0);
 
     -- Clock period definition
     constant clk_period : time := 10 ns;
 
 begin
 
-    -- Instantiate the DUT
-    uut: LSFR
+   
+    UUT: LFSR
         Port map (
-            clk    => clk_tb,
-            rst    => rst_tb,
-            enable => enable_tb,
-            rnd    => rnd_tb
+            clk    => clk,
+            rst    => rst,
+            enable => enable,
+            rnd    => rnd
         );
 
     -- Clock generation: toggles clk_tb every 5 ns (period = 10 ns)
@@ -75,4 +75,5 @@ begin
         wait;
     end process;
 
-end Behavioral;
+end TEST;
+
